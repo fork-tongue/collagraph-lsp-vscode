@@ -20,10 +20,10 @@ pip install collagraph-lsp
    ```bash
    # Install dependencies
    npm install
-   # Compile the TypeScript code
-   npm run compile
-   # Package into vsix file
+   # Build the bundled extension
    npm run package
+   # Package into vsix file
+   npm run vsce:package
    ```
 
 2. Install the `.vsix` file in VS Code:
@@ -32,6 +32,30 @@ pip install collagraph-lsp
    - Click the "..." menu at the top
    - Select "Install from VSIX..."
    - Choose the generated `.vsix` file
+
+## Development
+
+If you want to develop or modify this extension:
+
+```bash
+# Install dependencies
+npm install
+
+# Watch for changes (rebuilds on file save)
+npm run watch
+
+# Type-check without building
+npm run check-types
+
+# Lint the code
+npm run lint
+
+# Build for production
+npm run package
+
+# Create VSIX package
+npm run vsce:package
+```
 
 ## Configuration
 

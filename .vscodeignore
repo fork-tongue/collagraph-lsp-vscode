@@ -1,9 +1,24 @@
+# Development files
 .vscode/**
 .vscode-test/**
+.github/**
+node_modules/**
+
+# Source files (not needed after bundling)
 src/**
-.gitignore
-.eslintrc.json
-**/*.map
 **/*.ts
+
+# Build configuration
 tsconfig.json
+esbuild.js
+eslint.config.mjs
+.eslintrc.json
+.gitignore
+
+# Build artifacts
+**/*.map
 *.vsix
+
+# OS files
+.DS_Store
+Thumbs.db
