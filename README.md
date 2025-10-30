@@ -33,29 +33,6 @@ pip install collagraph-lsp
    - Select "Install from VSIX..."
    - Choose the generated `.vsix` file
 
-## Development
-
-If you want to develop or modify this extension:
-
-```bash
-# Install dependencies
-npm install
-
-# Watch for changes (rebuilds on file save)
-npm run watch
-
-# Type-check without building
-npm run check-types
-
-# Lint the code
-npm run lint
-
-# Build for production
-npm run package
-
-# Create VSIX package
-npm run vsce:package
-```
 
 ## Configuration
 
