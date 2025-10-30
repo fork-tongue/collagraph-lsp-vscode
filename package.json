@@ -2,7 +2,7 @@
   "name": "collagraph-lsp",
   "displayName": "Collagraph LSP",
   "description": "Language Server Protocol support for Collagraph (.cgx) files",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "collagraph",
   "license": "MIT",
   "repository": {
@@ -77,11 +77,15 @@
     }
   },
   "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
+    "vscode:prepublish": "npm run package",
+    "compile": "npm run check-types && node esbuild.js",
+    "watch": "npm-run-all -p watch:*",
+    "watch:esbuild": "node esbuild.js --watch",
+    "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+    "package": "npm run check-types && node esbuild.js --production",
+    "check-types": "tsc --noEmit",
     "lint": "eslint src --ext ts",
-    "package": "vsce package",
+    "vsce:package": "vsce package",
     "publish": "vsce publish"
   },
   "devDependencies": {
@@ -91,6 +95,7 @@
     "@typescript-eslint/eslint-plugin": "*",
     "@typescript-eslint/parser": "*",
     "@vscode/vsce": "*",
+    "esbuild": "*",
     "eslint": "*",
     "typescript": "*"
   },
