@@ -1,0 +1,100 @@
+{
+  "name": "collagraph-lsp",
+  "displayName": "Collagraph LSP",
+  "description": "Language Server Protocol support for Collagraph (.cgx) files",
+  "version": "0.1.0",
+  "publisher": "collagraph",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/collagraph/collagraph-lsp"
+  },
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Linters"
+  ],
+  "keywords": [
+    "collagraph",
+    "cgx",
+    "lsp",
+    "python",
+    "ruff"
+  ],
+  "activationEvents": [
+    "onLanguage:collagraph"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "collagraph",
+        "aliases": [
+          "Collagraph",
+          "collagraph",
+          "cgx"
+        ],
+        "extensions": [
+          ".cgx"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "collagraph",
+        "scopeName": "source.collagraph",
+        "path": "./syntaxes/collagraph.tmLanguage.json"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Collagraph LSP",
+      "properties": {
+        "collagraph-lsp.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable/disable the Collagraph LSP server"
+        },
+        "collagraph-lsp.command": {
+          "type": "string",
+          "default": "collagraph-lsp",
+          "description": "Command to start the Collagraph LSP server. Modify this if the server is not in your PATH."
+        },
+        "collagraph-lsp.trace.server": {
+          "type": "string",
+          "enum": [
+            "off",
+            "messages",
+            "verbose"
+          ],
+          "default": "off",
+          "description": "Traces the communication between VS Code and the language server."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts",
+    "package": "vsce package",
+    "publish": "vsce publish"
+  },
+  "devDependencies": {
+    "@eslint/js": "*",
+    "@types/node": "*",
+    "@types/vscode": "*",
+    "@typescript-eslint/eslint-plugin": "*",
+    "@typescript-eslint/parser": "*",
+    "@vscode/vsce": "*",
+    "eslint": "*",
+    "typescript": "*"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^9.0.1"
+  }
+}
