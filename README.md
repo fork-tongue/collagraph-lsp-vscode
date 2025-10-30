@@ -33,7 +33,6 @@ pip install collagraph-lsp
    - Select "Install from VSIX..."
    - Choose the generated `.vsix` file
 
-
 ## Configuration
 
 The extension can be configured through VS Code settings:
